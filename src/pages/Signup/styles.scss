@@ -1,0 +1,65 @@
+@use '../../styles/variables' as variables;
+
+.signup-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  inline-size: 100%;
+  padding: variables.$size-space-s;
+  box-sizing: border-box;
+  justify-content: center;
+
+  &__form {
+    display: flex;
+    inline-size: 400px;
+    block-size: 100%;
+    gap: variables.$size-space-s;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: variables.$size-space-l;
+    background-color: variables.$color-white;
+    border-radius: variables.$size-border-radius-m;
+    box-shadow: 0 variables.$size-space-xxs variables.$size-space-xs variables.$color-black;
+  }
+
+  &__back,
+  &__submit {
+    inline-size: 100%;
+    background-color: variables.$color-blue;
+    padding: variables.$size-space-xs;
+    border-radius: variables.$size-border-radius-m;
+    border: unset;
+    color: variables.$color-white;
+    font-size: variables.$size-font-m;
+    font-weight: variables.$weight-font-bold;
+    cursor: pointer;
+  }
+
+  &__back {
+    inline-size: auto;
+    background-color: variables.$color-white;
+    color: variables.$color-black;
+    font-weight: variables.$weight-font-normal;
+
+    &:hover {
+      background-color: rgb(variables.$color-blue, 0.1);
+    }
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: variables.$size-space-s;
+  }
+
+  &__label {
+    inline-size: 100%;
+    display: flex;
+    justify-content: flex-end;
+    color: variables.$color-blue;
+    font-size: variables.$size-font-l;
+    font-weight: variables.$weight-font-bold;
+  }
+}

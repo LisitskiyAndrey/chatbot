@@ -1,0 +1,102 @@
+@use '../../styles/variables' as variables;
+
+.login-page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  inline-size: 100%;
+  padding: variables.$size-space-s;
+  box-sizing: border-box;
+  justify-content: center;
+
+  &__header {
+    display: flex;
+    inline-size: 100%;
+    justify-content: space-between;
+
+    span {
+      inline-size: fit-content;
+    }
+  }
+
+  &__checkbox {
+    inline-size: 100%;
+    display: flex;
+    align-items: center;
+    gap: variables.$size-space-s;
+  }
+
+  &__sign,
+  &__forgot {
+    display: flex;
+    inline-size: fit-content;
+    background-color: transparent;
+    border: unset;
+    color: variables.$color-blue;
+    cursor: pointer;
+  }
+
+  &__submit {
+    inline-size: 100%;
+    background-color: variables.$color-blue;
+    padding: variables.$size-space-xs;
+    border-radius: variables.$size-border-radius-m;
+    border: unset;
+    color: variables.$color-white;
+    font-size: variables.$size-font-m;
+    font-weight: variables.$weight-font-bold;
+    cursor: pointer;
+  }
+
+  &__sign,
+  &__login {
+    color: variables.$color-blue;
+    font-size: variables.$size-font-l;
+    font-weight: variables.$weight-font-bold;
+  }
+
+  &__sign {
+    color: variables.$color-black;
+  }
+
+  &__form {
+    display: flex;
+    inline-size: 400px;
+    block-size: 100%;
+    gap: variables.$size-space-s;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: variables.$size-space-l;
+    background-color: variables.$color-white;
+    border-radius: variables.$size-border-radius-m;
+    box-shadow: 0 variables.$size-space-xxs variables.$size-space-xs variables.$color-black;
+  }
+
+  label {
+    inline-size: 100%;
+    position: relative;
+  }
+
+  &__email:before,
+  &__pass:before {
+    content: "";
+    position: absolute;
+    left: variables.$size-space-xs;
+    top: 0;
+    bottom: 0;
+    inline-size: variables.$size-space-l;
+    background-color: variables.$color-blue;
+  }
+
+  &__pass:before {
+    mask: url(../../assets/icons/lock.svg) no-repeat center;
+    mask-size: contain;
+  }
+
+  &__email:before {
+    mask: url(../../assets/icons/email.svg) no-repeat center;
+    mask-size: contain;
+  }
+}

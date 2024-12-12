@@ -1,0 +1,38 @@
+@use '../../../../styles/variables' as variables;
+
+.modal-footer {
+  display: flex;
+  padding: variables.$size-space-s;
+  gap: variables.$size-space-xs;
+  border-top: variables.$size-border-weight solid variables.$color-gray;
+  box-sizing: border-box;
+
+  &__submit {
+    padding: variables.$size-space-s;
+    background-color: variables.$color-blue;
+    mask: url(../../../../assets/icons/plain.svg) no-repeat center;
+    mask-size: contain;
+    cursor: pointer;
+  }
+
+  &__submit:hover {
+    background-color: rgb(variables.$color-blue, 0.8);
+  }
+
+  input {
+    inline-size: 100%;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: variables.$size-space-xs variables.$size-space-xl;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  input::placeholder {
+    color: variables.$color-gray;
+    font-size: variables.$size-font-m;
+  }
+}

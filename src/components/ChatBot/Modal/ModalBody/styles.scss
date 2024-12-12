@@ -1,0 +1,18 @@
+@use '../../../../styles/variables' as variables;
+
+.modal-body {
+  display: flex;
+  inline-size: 100%;
+  max-block-size: 50vh;
+  box-sizing: border-box;
+  padding: variables.$size-border-radius-l;
+
+  &__messages {
+    flex: 1;
+    padding: variables.$size-space-s;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    background: variables.$color-white;
+  }
+}

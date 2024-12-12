@@ -1,0 +1,12 @@
+@use '../../../styles/_variables' as variables;
+
+.chat-modal {
+  background-color: variables.$color-white;
+  border-radius: variables.$size-border-radius-m;
+  box-shadow: 0 variables.$size-space-xxs variables.$size-space-xs variables.$color-black;
+  inline-size: 400px;
+
+  @media only screen and (max-width: 600px) {
+    inline-size: 100%;
+  }
+}

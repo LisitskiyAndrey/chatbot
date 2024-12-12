@@ -1,0 +1,44 @@
+@use '../../../src/styles/_variables' as variables;
+
+.snackbar {
+
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: variables.$color-green;
+  color: variables.$color-white;
+  padding: 10px 20px;
+  border-radius: variables.$size-border-radius-m;
+
+  font-size: variables.$size-font-s;
+  box-shadow: 0 variables.$size-space-xxs variables.$size-space-xs variables.$color-green;
+  animation: fadeInOut 3s ease-in-out;
+
+  &.show {
+    visibility: visible;
+  }
+
+  &_failed {
+    background-color: variables.$color-red;
+    box-shadow: 0 variables.$size-space-xxs variables.$size-space-xs variables.$color-red;
+  }
+
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    20% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    80% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+}

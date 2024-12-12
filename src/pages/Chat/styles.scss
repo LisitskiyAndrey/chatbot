@@ -1,0 +1,10 @@
+@use '../../styles/variables' as variables;
+
+.chatbot {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  @media only screen and (max-width: 600px) {
+    position: unset;
+  }
+}

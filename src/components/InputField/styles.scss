@@ -1,0 +1,26 @@
+@use '../../styles/variables' as variables;
+
+.input-field {
+
+
+  inline-size: 100%;
+  margin: 0;
+  border: rgb(variables.$color-gray, 0.5) solid variables.$size-border-weight;
+  border-radius: variables.$size-border-radius-m;
+  padding: variables.$size-space-xs;
+  box-sizing: border-box;
+
+  &__icon {
+    padding-inline-start: variables.$size-space-xl !important;
+  }
+
+  input:focus {
+    outline: none;
+    border: variables.$color-blue solid variables.$size-border-weight;
+  }
+
+  input::placeholder {
+    color: variables.$color-gray;
+    font-size: variables.$size-font-m;
+  }
+}

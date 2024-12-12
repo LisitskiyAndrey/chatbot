@@ -1,0 +1,44 @@
+@use '../../../../styles/variables' as variables;
+
+.modal-header {
+  display: flex;
+  inline-size: 100%;
+  align-items: center;
+  background-color: variables.$color-blue;
+  border-top-left-radius: variables.$size-border-radius-m;
+  border-top-right-radius: variables.$size-border-radius-m;
+  padding: variables.$size-space-xs;
+  box-sizing: border-box;
+  color: variables.$color-white;
+
+  &::before {
+    content: '';
+    inline-size: 30px;
+    block-size: 30px;
+    background-color: variables.$color-white;
+    mask: url(../../../../assets/icons/robot.svg) no-repeat center;
+    mask-size: contain;
+    margin-inline-end: variables.$size-space-m;
+  }
+
+  &__title {
+    display: flex;
+    inline-size: 100%;
+    font-size: variables.$size-font-m;
+  }
+
+  &__close {
+    inline-size: 20px;
+    block-size: 20px;
+    background-color: variables.$color-white;
+    mask: url(../../../../assets/icons/close.svg) no-repeat center;
+    mask-size: contain;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+  }
+
+  &__close:hover {
+    transform: rotate(180deg);
+    background-color: variables.$color-white;
+  }
+}

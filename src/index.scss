@@ -1,0 +1,24 @@
+@use '../src/styles/_variables' as variables;
+
+:root {
+  font-family: Avantt, sans-serif;
+  // background-color: variables.$color-background;
+  background: antiquewhite;
+  block-size: 100vh;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 10px;
+}
+
+body {
+  inline-size: 100%;
+  block-size: 100%;
+  margin: 0;
+}
+
+#root {
+  display: flex;
+  inline-size: 100%;
+  block-size: 100%;
+  position: relative;
+}
