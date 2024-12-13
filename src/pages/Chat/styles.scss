@@ -4,7 +4,16 @@
   position: absolute;
   bottom: 20px;
   right: 20px;
+  opacity: 0;
+  animation: showChat 1000ms forwards;
+
   @media only screen and (max-width: 600px) {
     position: unset;
+  }
+
+  @keyframes showChat {
+    100% {
+      opacity: 1;
+    }
   }
 }

@@ -6,9 +6,12 @@ import { RoutPages } from '../../const/routs.tsx'
 import InputField from '../../components/InputField/InputField.tsx'
 import Spinner from '../../components/Spinner/Spinner.tsx'
 import Snackbar from '../../components/Snackbar/Snackbar.tsx'
-import { tokenKey } from '../../const/context.tsx'
+import { useRefreshToken } from '../../hooks/refreshHook.tsx'
+import { useAuth } from '../../context/AuthContext.tsx'
+import { EActions } from '../../const/context.tsx'
 
 const CLASS_NAME = 'login-page'
+
 
 const LoginPage = () => {
 	const [email, setEmail] = useState('')
@@ -16,6 +19,8 @@ const LoginPage = () => {
 	const [rememberMe, setRememberMe] = useState(false)
 	const [snackbarVisible, setSnackbarVisible] = useState({ isVisible: false, isSuccess: false, message: 'Success!' })
 	const { mutate: login, isLoading } = useLogin()
+	const { dispatch } = useAuth()
+	const { mutate: refresh } = useRefreshToken()
 	const navigate = useNavigate()
 
 	const handleSignup = () => {
@@ -26,13 +31,23 @@ const LoginPage = () => {
 		login(
 			{ email, password },
 			{
-				onSuccess: (resp) => {
-					sessionStorage.setItem(tokenKey, resp.authToken)
+				onSuccess: ({ authToken, refreshToken }) => {
 					setSnackbarVisible({ isSuccess: true, isVisible: true, message: 'Success!' })
+					dispatch({ type: EActions.AddAuth, payload: authToken })
+					refresh({ token: refreshToken }, {
+						onSuccess: ({ authToken, refreshToken }) => {
+							if (refreshToken && authToken) {
+								dispatch({ type: EActions.AddAuth, payload: authToken })
+								dispatch({ type: EActions.AddRefresh, payload: refreshToken })
+							}
+						}
+					})
 					navigate(RoutPages.Home)
 				},
 				onError: (error: any) => {
 					navigate(RoutPages.Login)
+					dispatch({ type: EActions.DeleteAuth, payload: null })
+					dispatch({ type: EActions.DeleteRefresh, payload: null })
 					setSnackbarVisible({
 						isSuccess: false,
 						isVisible: true,
@@ -70,7 +85,7 @@ const LoginPage = () => {
 						Remember Me
 					</span>
 					</div>
-					<button onClick={handleSubmit} type="submit" className={`${CLASS_NAME}__submit`}>
+					<button onClick={handleSubmit} type="button" className={`${CLASS_NAME}__submit`}>
 						Login
 					</button>
 					<button type="button" className={`${CLASS_NAME}__forgot`}>Forgot Password?</button>

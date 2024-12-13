@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { tokenKey } from '../const/context.tsx'
 
 const axiosInstance = axios.create({
 	baseURL: import.meta.env.VITE_APP_BASE_URL,
@@ -11,7 +10,7 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
 	(config) => {
-		const token = sessionStorage.getItem(tokenKey)
+		const token = sessionStorage.getItem('authToken')
 		if (token) {
 			config.headers.Authorization = `Bearer ${token}`
 		}
