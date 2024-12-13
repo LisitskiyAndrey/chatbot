@@ -20,7 +20,7 @@ const Signup = () => {
 	const [email, setEmail] = useState('')
 	const [errors, setErrors] = useState<IError | undefined>(undefined)
 	const [password, setPassword] = useState('')
-	const { mutate: signup, isLoading } = useSignup()
+	const { mutate: signup, isPending } = useSignup()
 	const [snackbarVisible, setSnackbarVisible] = useState({ isVisible: false, isSuccess: false, message: 'Success!' })
 	const navigate = useNavigate()
 
@@ -53,7 +53,7 @@ const Signup = () => {
 	const handleGoBack = () => navigate(-1)
 	return (
 		<>
-			<Spinner isShown={isLoading}/>
+			<Spinner isShown={isPending}/>
 			<div className={`${CLASS_NAME}`}>
 				<div className={`${CLASS_NAME}__form`}>
 					<div className={`${CLASS_NAME}__header`}>

@@ -1,6 +1,10 @@
 import axiosInstance from './axiosInstance.tsx'
 
-export const chat = async (message: { message: string }) => {
+export interface IChatVariables {
+	message: string;
+}
+
+export const chat = async (message: IChatVariables) => {
 	const response = await axiosInstance.post('/bot', message)
 	return response.data
 }

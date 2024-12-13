@@ -5,7 +5,7 @@ export interface ICredentials {
 	password: string
 }
 
-interface IUserInfo extends ICredentials {
+export interface IUserInfo extends ICredentials {
 	name: string
 }
 

@@ -2,7 +2,8 @@ import { createContext, Dispatch, FC, ReactNode, useContext, useReducer } from '
 import { IRefreshedToken } from '../services/auth.tsx'
 import { authReducer } from './Reducer.tsx'
 import { Action } from './Actions.tsx'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+
 
 export interface IState {
 	auth: IRefreshedToken

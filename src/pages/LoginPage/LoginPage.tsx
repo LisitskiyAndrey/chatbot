@@ -18,7 +18,7 @@ const LoginPage = () => {
 	const [password, setPassword] = useState('')
 	const [rememberMe, setRememberMe] = useState(false)
 	const [snackbarVisible, setSnackbarVisible] = useState({ isVisible: false, isSuccess: false, message: 'Success!' })
-	const { mutate: login, isLoading } = useLogin()
+	const { mutate: login, isPending } = useLogin()
 	const { dispatch } = useAuth()
 	const { mutate: refresh } = useRefreshToken()
 	const navigate = useNavigate()
@@ -60,7 +60,7 @@ const LoginPage = () => {
 
 	return (
 		<>
-			<Spinner isShown={isLoading}/>
+			<Spinner isShown={isPending}/>
 			<div className={`${CLASS_NAME}`}>
 				<div className={`${CLASS_NAME}__form`}>
 					<div className={`${CLASS_NAME}__header`}>
